@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaTrackerDB | Roland Erdei</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --tag-bg: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Navigáció */
+    nav {
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.2s;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--tag-bg);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--tag-bg);
+    }
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0f172a;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Fejléc */
+    header {
+      text-align: left;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--tag-bg);
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    header .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    /* Tartalmi szekciók */
+    .content-section {
+      background-color: var(--card-bg);
+      border: 1px solid var(--tag-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .content-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--tag-bg);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .content-section p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .content-section ul {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .content-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Képgaléria formázása */
+    .project-img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--tag-bg);
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .img-caption {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--tag-bg);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Navigation Back Button -->
+    <nav>
+      <a href="index.html" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Portfolio
+      </a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>MediaTrackerDB</h1>
+      <div class="subtitle">An End-to-End Data Pipeline and BI Dashboard</div>
+    </header>
+
+    <main>
+      
+      <!-- Project Description (Based on README) -->
+      <section class="content-section">
+        <h2>🎯 Purpose</h2>
+        <p>
+          The goal of this project is to centralize and harmonize fragmented personal entertainment tracking into a single, unified business intelligence solution. By consolidating data across disparate media platforms (films, series, and games), the project eliminates data silos and provides holistic, data-driven insights into consumption habits, preferences, and long-term rating patterns.
+        </p>
+
+        <h2 style="margin-top: 2rem;">💡 Why Is It Useful?</h2>
+        <ul>
+          <li><strong>Unified Entertainment Hub:</strong> Entertainment trackers are typically siloed by medium. This project brings them together under a single dimensional model for seamless cross-media analytics.</li>
+          <li><strong>Deep Cross-Dimensional Analysis:</strong> Evaluates personal bias and rating trends across release years, normalizes delimited multi-genre tags, and tracks watch history and viewing consistency over time.</li>
+          <li><strong>Robust Data Engineering:</strong> Features a star/snowflake schema design with relational normalization in MS SQL Server, Power Query ETL pipelines, and advanced DAX modeling.</li>
+          <li><strong>Privacy-First & Template-Ready:</strong> Distributed with a sanitized, schema-only database backup and a .pbit file, allowing anyone to spin up the environment without exposing personal logs.</li>
+        </ul>
+      </section>
+
+      <!-- Architecture (Flowchart) -->
+      <section class="content-section">
+        <h2>🔄 Architecture & Pipeline Flow</h2>
+        <p>The data ingestion process extracts CSV and JSON exports from tracking sites and enriches video game data using the IGDB (Twitch) REST API via Python, before loading it into a normalized MS SQL Server staging environment.</p>
+        
+
+        <img src="Materials/MediaTrackerDB.drawio.png" alt="Data Pipeline Flowchart" class="project-img">
+        <div class="img-caption">High-level architecture and ETL pipeline</div>
+      </section>
+
+      <!-- Data Model -->
+      <section class="content-section">
+        <h2>📐 Data Model (Star Schema)</h2>
+        <p>The Power BI semantic model is built on a highly optimized star/snowflake schema, handling complex one-to-many relationships (like comma-separated genres) to enable dynamic cross-filtering.</p>
+        
+        <!-- IDE ÍRD AZ ADATMODELL KÉPED ELÉRÉSÉT -->
+        <img src="Materials/PBI_DataModel_2026-10-05.png" alt="Power BI Data Model" class="project-img">
+        <div class="img-caption">Relational Data Model in Power BI</div>
+      </section>
+
+      <!-- Dashboard Gallery -->
+      <section class="content-section">
+        <h2>📊 Dashboard Views</h2>
+        <p>Interactive reporting pages showcasing personal media consumption, custom DAX measures for weighted ratings, and genre distributions.</p>
+        
+        <!-- 1. DASHBOARD KÉP -->
+        <img src="Materials/Trakt_dashboard.png" alt="Dashboard Page 1 - Movies & TV" class="project-img">
+        <div class="img-caption">Movies & TV Shows Overview</div>
+
+        <!-- 2. DASHBOARD KÉP -->
+        <img src="Materials/Backloggd_dashboard.png" alt="Dashboard Page 2 - Video Games" class="project-img">
+        <div class="img-caption">Video Games & Backlog Analysis</div>
+
+        <!-- 3. DASHBOARD KÉP -->
+        <img src="Materials/IMDB_dashboard.png" alt="Dashboard Page 3 - Cross-Media Insights" class="project-img">
+        <div class="img-caption">Cross-Media Insights & Rating Trends</div>
+      </section>
+    
+      <!-- Call to Action -->
+      <section class="content-section" style="text-align: center; border-color: var(--accent);">
+        <h2 style="border-bottom: none; margin-bottom: 0.5rem; color: var(--accent);">🚀 Build Your Own MediaTracker</h2>
+        <p style="max-width: 700px; margin: 0 auto 2rem auto;">
+          Want to analyze your own gaming, movie, and series habits? I've made this project open-source and completely template-ready. Head over to the GitHub repository where you'll find the empty SQL database schema, the Power BI template file (.pbit), and a step-by-step guide to easily plug in your own exported data without exposing any personal logs!
+        </p>
+        <a href="https://github.com/revoltec007/MediaTrackerDB" class="btn btn-primary" target="_blank" style="font-size: 1.25rem; padding: 1rem 2rem; display: inline-flex; justify-content: center; align-items: center; border-radius: 8px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px;">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          View Repository & Instructions
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Roland Erdei. Hosted on GitHub Pages.</p>
+    </footer>
+  </div>
+
+</body>
+</html>

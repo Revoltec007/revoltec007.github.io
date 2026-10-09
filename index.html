@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roland Erdei | Data Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --tag-bg: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Hero section */
+    header {
+      text-align: center;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--tag-bg);
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header .subtitle {
+      color: var(--accent);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    header .bio {
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+      font-size: 1.3rem;
+    }
+
+    .social-links a svg {
+      width: 40px;
+      height: 40px;
+      fill: currentColor;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Projects Grid */
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #334155;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; /* Raises the card for clickability. */
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-link-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      text-decoration: none;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      background-color: #334155;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2; /* Raises the text above the overlay. */
+    }
+
+    .tag {
+      background-color: var(--tag-bg);
+      color: var(--accent);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 1rem;
+      position: relative;
+      z-index: 2; /* Raises the buttons above the overlay. */
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--tag-bg);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--tag-bg);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--tag-bg);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header / Hero -->
+    <header>
+      <h1>Roland Erdei</h1>
+      <div class="subtitle">Data Engineer & BI Specialist</div>
+      <p class="bio">
+        A specialist in data modeling, relational databases (MS SQL), and the creation of interactive Power BI reports.
+        Building end-to-end data pipelines, ranging from raw exports to business decision-making.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/revoltec007" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.379.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/roland-erdei/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </header>
+
+    <!-- Projects Section -->
+    <main>
+      <h2 class="section-title">Highlighted Projects</h2>
+      
+      <div class="projects-grid">
+        
+        <!-- MediaTrackerDB Project Card -->
+        <article class="card">
+          <!-- This hidden link makes the card clickable. -->
+          <a href="mediatrackerdb.html" class="card-link-overlay"></a>
+          
+          <img src="Materials/IMDB_dashboard.png" alt="MediaTrackerDB Preview" class="card-img">
+          <div class="card-content">
+            <h3>MediaTrackerDB</h3>
+            <p>
+              A unified media and game tracking database and dashboard. Normalizing raw IMDb, Trakt, and Backloggd exports, supplemented with IGDB API data within a star-schema MS SQL and Power BI environment.
+            </p>
+            <div class="tags">
+              <span class="tag">MS SQL</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX</span>
+              <span class="tag">Python</span>
+              <span class="tag">REST API</span>
+            </div>
+            <div class="card-links">
+              <a href="https://revoltec007.github.io/mediatrackerdb.html" class="btn btn-primary">Dashboard Introduction</a>
+              <a href="https://github.com/revoltec007/MediaTrackerDB" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- In-Game Visited Places Project Card -->
+        <article class="card">
+          <div class="card-img" style="display:flex; align-items:center; justify-content:center; color: #64748b;">
+            Preview Image Location
+          </div>
+          <div class="card-content">
+            <h3>In-Game Visited Places (under development)</h3>
+            <p>
+              I am already working on this project.
+            </p>
+            <div class="tags">
+              <span class="tag">REST-API</span>
+              <span class="tag">Python</span>
+              <span class="tag">MS SQL</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">DAX</span>
+            </div>
+            <div class="card-links">
+              <a href="#" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- WEBP to PNG Converter -->
+        <article class="card">
+          <!-- This hidden link makes the card clickable. -->
+          <a href="webp_to_png_converter.html" class="card-link-overlay"></a>
+          
+          <img src="Materials/WEBP_to_PNG_Converter.png" alt="WEBP to PNG Converter Preview" class="card-img">
+
+          <div class="card-content">
+            <h3>WEBP to PNG Converter</h3>
+            <p>
+              A simple tool to convert WEBP images to PNG format locally.
+            </p>
+            <div class="tags">
+              <span class="tag">Converter</span>
+              <span class="tag">Python</span>
+              <span class="tag">PNG</span>
+              <span class="tag">WEBP</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/Revoltec007/WEBP_to_PNG_Converter" class="btn btn-secondary" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Roland Erdei. Hosted on GitHub Pages.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
